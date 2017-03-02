@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <div ng-controller='sessionController'>
+            
+            <div ng-controller='answerController'>
+                <a href="#/dashboard">Home</a>&nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp<a href="#/showquestion/{{addAnswerQuestion._id}}">Back to Question</a> &nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp<a href='/logout'>Logout</a><br>
+
+                <p style="color:red" ng-repeat="error in errors track by $index">{{error}}</p>
+                
+                <br>
+                <h1>{{addAnswerQuestion.title}}</h1>
+                    <h3>{{addAnswerQuestion.content}}</h3>
+                    
+                        <form ng-submit="addAnswer(currentUser._id, addAnswerQuestion._id, newAnswer)" name="answerform1">
+                            <!-- Went with input type text, instead of textarea, just as not to deal with alignment issues -->
+                            Answer&nbsp&nbsp<input type='text' size="50" placeholder="Enter the answer here." ng-model='newAnswer.title'><br>
+                            Details (optional)&nbsp&nbsp<input type='text' size="50" placeholder="Enter additional details here." ng-model='newAnswer.content'> 
+                            <br>
+                            <br>
+                                <button type="submit" value="Submit">Submit</button>
+                                <button type="button" onclick="location.href='#/dashboard'">Cancel</button>
+                        </form>
+            </div>
+        </div>
+    </body>
+</html>
+
+
+

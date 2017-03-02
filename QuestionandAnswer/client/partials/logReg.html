@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="./../css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <div ng-controller='sessionController'>
+            <p style="color:red" ng-repeat="error in errors track by $index">{{error}}</p>
+            <h1>Question and Answer</h1>
+            <h3>Login and Registration</h3>
+            <form>
+                <input type='text' placeholder="Enter a name here." ng-model='user.name'>
+                <input type='submit' name="Login and Register here" ng-click='login()'>
+            </form>
+
+        </div>
+    </body>
+</html>

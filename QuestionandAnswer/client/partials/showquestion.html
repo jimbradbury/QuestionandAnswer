@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <div ng-controller='sessionController'>
+            <div ng-controller='answerController'>
+
+                  <a href="#/dashboard">Home</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <a href="#/addanswer/{{addAnswerQuestion._id}}">Answer the Question</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href='/logout'>Logout</a><br>
+            
+                
+                <h1>{{addAnswerQuestion.title}}</h1>
+                <h3>{{addAnswerQuestion.content}}<h3>
+                    
+                    <!--<div ng-repeat= "answer in answers" | orderBy: '-likes' style="outline: thin solid black">-->
+                    <div style='outline: thin solid black' ng-repeat= "answer in answers" | ng-if='addAnswerQuestion._id == answer._question._id'>
+        
+                    <p>{{answer._user.name}}:</p>
+                    <p style="font-weight: bold">{{answer.title}}</p>
+                    <p>{{answer.content}}</p>
+                    <p>{{answer.likes}}&nbsp&nbsp&nbsp&nbsp<button ng-click='like(answer)'>Like</button></p>
+
+                </div>
+
+            </div>      
+        </div>
+    </body>
+</html>

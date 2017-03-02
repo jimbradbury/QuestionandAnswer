@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <div ng-controller='sessionController'>
+            <a href="#/dashboard">Home</a>&nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp<a href='/logout'>Logout</a><br>
+            <br>
+            <h1>New Question</h1>
+                <div ng-controller='questionController'>
+                    <p style="color:red" ng-repeat="error in errors track by $index">{{error}}</p>
+                    <form ng-submit='addQuestion(currentUser._id, newQuestion)' name="quoteform1">
+                        
+                        <!-- Went with input type text, instead of textarea, just as not to deal with alignment issues -->
+                        Question&nbsp&nbsp <input type='text' size="50" placeholder="Enter question here." ng-model='newQuestion.title'><br>
+                        Description (optional)&nbsp&nbsp <input type='text' size="50" placeholder="Enter additional details here." ng-model='newQuestion.content'> 
+
+                        <br>
+                        <br>
+                            <button type="submit" value="Submit">Submit</button>
+                            <button type="button" onclick="location.href='#/dashboard'">Cancel</button>
+                    </form>
+                </div>
+        </div>
+    </body>
+</html>
+

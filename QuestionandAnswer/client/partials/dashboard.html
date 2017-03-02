@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <div ng-controller='sessionController'>
+            <div ng-controller='questionController'>
+                <h1>Hi, {{ currentUser.name}}!</h1>
+                <br>
+                <a href="#/addquestion">Add Question</a>&nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp<a href='/logout'>Logout</a><br>
+                <br>
+                <br>
+                <!-- Using add on filter loaded .js in index and as dependency in app.js-->
+                Search: <input type="text" ng-model="search" placeholder='filter by question'>
+                <br>
+                <br>
+                <table style="width:80%" border="1">
+                <tr>
+                    <th>Question</th>
+                    <th>Answers </th> 
+                    <th>Action</th>
+                </tr>
+                <tr ng-repeat="question in questions | orderBy: '-_answers' | filter: search" >
+                    <td>{{question.title }}</td>
+                    <td>{{question._answers.length}}</td>
+                    <td><a href="#/showquestion/{{question._id}}">Show</a>&nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp<a href="#/addanswer/{{question._id}}">Add Answer</a></td>
+                </tr>
+                </table>
+
+            </div>       
+        </div>
+    </body>
+</html>
